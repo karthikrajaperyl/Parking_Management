@@ -23,7 +23,7 @@ public class HomePage {
 				// TODO Auto-generated method stub
 				System.out.println("Enter Your Choice");
 				System.out.println(
-						"1.Add an Account\n2.Enter Vehicle Details\n3.Add an Parking Spot\n4.change Detials\n5.DisplayBoardDetails\n6.Exist");
+						"1.Add an Account\n2.Add Parking Area\n3.Assign Vehicle Spot\n4.change Detials\n5.DisplayBoardDetails\n6.Exist");
 				int n = Integer.parseInt(readerobj.readLine());
 				Parking_Management parkingobj = new Parking_Details();
 				switch (n) {
@@ -31,10 +31,7 @@ public class HomePage {
 					parkingobj.addAccount();
 					break;
 				case 2:
-					if (Parking_Details.arealist.isEmpty())
-						System.out.println("No parking area is available");
-					else
-						parkingobj.addParkingArea();
+					parkingobj.addParkingArea();
 					break;
 				case 3:
 					parkingobj.assignVehicleSpot();
