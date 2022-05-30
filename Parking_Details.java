@@ -42,13 +42,13 @@ public class Parking_Details implements Parking_Management {
 		System.out.println("Enter the Building name");
 		String name = readerobj.readLine();
 		System.out.println("Enter the Floor no");
-		int floor = Integer.parseInt(readerobj.readLine()), totalvacancy;
-		int[] spottype = new int[floor];
+		int floor = Integer.parseInt(readerobj.readLine());
 		System.out.println("Enter the total number of vacancy for each floor");
-		totalvacancy = Integer.parseInt(readerobj.readLine());
+		int totalvacancy = Integer.parseInt(readerobj.readLine());
+		int[] spottype = new int[totalvacancy];
 		System.out.println("Enter the vacancy for different spots");
 		System.out.println("1.HANDICAPPED\n2.TWOWHEELER\n3.FOURWHEELERMIN\n4.FOURWHEELERMAX\n");
-		for (int i = 0; i < floor; i++) {
+		for (int i = 0; i < totalvacancy; i++) {
 			spottype[i] = Integer.parseInt(readerobj.readLine());
 		}
 		ParkingArea parkingdetails = new ParkingArea(name, floor, totalvacancy);
@@ -137,7 +137,7 @@ public class Parking_Details implements Parking_Management {
 
 	public ParkingSpot getUserSpot() throws IOException {
 		ParkingSpot parkingspotobj = null;
-		System.out.println("Enter the user Vehicle");
+		System.out.println("Enter the Spottype for Vehicle");
 		System.out.println("1.Handicapped\n2.Bike\n3.car\n4.VAN\n5.Truck\n6.ELECTRIC");
 		int vehicletype = Integer.parseInt(readerobj.readLine());
 		parkingspotobj = addParkingSpot(vehicletype);
@@ -204,7 +204,7 @@ public class Parking_Details implements Parking_Management {
 	public void spotDisplay() {
 		for (ParkingArea tempobj : arealist)
 			System.out.println("Building Name-" + tempobj.buildingName + "\nAvailable Floor-" + tempobj.Floorno
-					+ "\nSpots-Available" + tempobj.getSpotTypes());
+					+ "\nSpots-Available" + Arrays.toString(tempobj.getSpotTypes()));
 	}
 
 	public void destroySpot() throws IOException {
