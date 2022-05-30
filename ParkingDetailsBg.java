@@ -38,10 +38,6 @@ class ParkingArea {
 		return spottype;
 	}
 
-	void reduceSpotVacancy(int reduce, int spotno) {
-		this.spottype[spotno] -= reduce;
-	}
-
 	String getBuildingName() {
 		return this.buildingName;
 	}
